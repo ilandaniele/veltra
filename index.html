@@ -9,6 +9,10 @@
 <meta property="og:description" content="Automatizá cualquier proceso lento y engorroso de tu empresa en minutos. Conocé a ClaimMix, el primer empleado digital de Veltra.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#06070C">
+<!-- Security headers (meta-tag equivalents; full HTTP headers need Cloudflare or Vercel) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; connect-src https://formspree.io; img-src 'self' data:; base-uri 'self'; form-action https://formspree.io; frame-ancestors 'none';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -737,7 +741,9 @@
             <div class="field-in"><label for="cf-email">Email de trabajo</label><input id="cf-email" type="email" placeholder="vos@empresa.com" required></div>
           </div>
           <div class="field-in"><label for="cf-process">¿Qué proceso querés automatizar?</label><textarea id="cf-process" placeholder="Contános en una línea qué tarea repetitiva te gustaría sacarte de encima…" required></textarea></div>
-          <button type="submit" class="btn btn-acc">Quiero mi empleado digital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <!-- honeypot: bots fill this, humans don't — Formspree ignores submissions where it's filled -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <button type="submit" class="btn btn-acc" id="cf-submit">Quiero mi empleado digital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <div class="form-note">Te respondemos en menos de 48&nbsp;hs hábiles. Sin spam.</div>
         </form>
         <div class="form-done" id="contact-done">
@@ -778,10 +784,37 @@
   });
   // duplicate marquee for seamless loop
   (function(){var t=document.getElementById('track'); if(t){t.innerHTML+=t.innerHTML;}})();
-  // contact form
+  // contact form — Formspree AJAX
   (function(){
-    var f=document.getElementById('contact-form'), done=document.getElementById('contact-done');
-    if(f){f.addEventListener('submit',function(e){e.preventDefault();f.style.display='none';done.style.display='block';});}
+    var FORM_ID = 'YOUR_FORMSPREE_ID'; // replace with your Formspree form ID (e.g. "xpzvgkda")
+    var f = document.getElementById('contact-form');
+    var done = document.getElementById('contact-done');
+    var btn = document.getElementById('cf-submit');
+    if (!f) return;
+    f.addEventListener('submit', function(e) {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+      fetch('https://formspree.io/f/' + FORM_ID, {
+        method: 'POST',
+        body: new FormData(f),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r) {
+        if (r.ok) {
+          f.style.display = 'none';
+          done.style.display = 'block';
+        } else {
+          return r.json().then(function(d) {
+            var msg = d.errors ? d.errors.map(function(x){ return x.message; }).join(', ') : 'Error al enviar. Intentá de nuevo.';
+            alert(msg);
+            btn.disabled = false; btn.style.opacity = '';
+          });
+        }
+      }).catch(function() {
+        alert('Error de red. Verificá tu conexión e intentá de nuevo.');
+        btn.disabled = false; btn.style.opacity = '';
+      });
+    });
   })();
   // FAQ
   document.querySelectorAll('.q button').forEach(function(b){
