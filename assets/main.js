@@ -58,10 +58,17 @@
     });
   })();
 
-  /* hero entrance */
-  requestAnimationFrame(function(){requestAnimationFrame(function(){
-    document.querySelectorAll('.hero-anim').forEach(function(el){el.classList.add('in');});
-  });});
+  /* hero entrance. The double-rAF runs the transition on the first real paint, which is
+     what we want in a focused tab. rAF is paused while a tab is backgrounded, so the
+     setTimeout is a safety net for the case where rAF never resumes (prerender, bfcache
+     restore, aggressive mobile throttling) — without it the hero would stay at opacity 0.
+     1200ms is long enough that rAF always wins in a normal load, so the animation is
+     never pre-empted. Both paths are idempotent. */
+  (function(){
+    function showHero(){document.querySelectorAll('.hero-anim').forEach(function(el){el.classList.add('in');});}
+    requestAnimationFrame(function(){requestAnimationFrame(showHero);});
+    setTimeout(showHero,1200);
+  })();
 
   /* hero legajo loop: intake items -> typed fields -> stamp -> status */
   (function(){

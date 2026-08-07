@@ -512,8 +512,15 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
 @media(prefers-reduced-motion:no-preference){
   body::before{animation:glowDrift 22s ease-in-out infinite alternate}
   @keyframes glowDrift{from{transform:translate3d(-1.5%,-1%,0) scale(1.02)}to{transform:translate3d(1.5%,1.5%,0) scale(1.06)}}
-  .hero-anim{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  /* The hero is revealed by JS adding .in. <noscript> covers JS being *disabled*, but not
+     assets/main.js failing to load (404, blocked, bad deploy) — there JS is enabled, so
+     <noscript> never applies and the hero would sit at opacity 0, i.e. the page looks
+     broken above the fold. heroFailsafe is a 0s animation that fires at 2.5s and lands on
+     exactly the same values as .in, so when JS works it is invisible/no-op. */
+  .hero-anim{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);
+    animation:heroFailsafe 0s linear 2.5s forwards}
   .hero-anim.in{opacity:1;transform:none}
+  @keyframes heroFailsafe{to{opacity:1;transform:none}}
   .hero h1 .chip{animation:chipGlow 4.5s ease-in-out infinite}
   @keyframes chipGlow{0%,100%{text-shadow:0 0 0 rgba(var(--accent-rgb),0)}50%{text-shadow:0 0 26px rgba(var(--accent-rgb),.45)}}
   .reveal{transition:opacity .75s cubic-bezier(.16,.84,.3,1),transform .75s cubic-bezier(.16,.84,.3,1),filter .75s ease}
