@@ -39,9 +39,23 @@ gente no tiene cliente de mail configurado).
 
 ## 2. Cloudflare — activar los security headers reales (~15 min, gratis)
 
-**El problema:** GitHub Pages no permite mandar headers HTTP propios. Por eso
-`Strict-Transport-Security`, `X-Frame-Options`, `Permissions-Policy`, COOP/CORP y
-`frame-ancestors` **hoy no existen** en el sitio, por más que estén escritos.
+**El problema:** GitHub Pages no permite mandar headers HTTP propios.
+
+Estado real medido sobre el sitio en vivo (2026-08-07):
+
+| Header | Estado hoy |
+|---|---|
+| `Strict-Transport-Security` | ✅ **Ya está** — lo sirve `github.io` (`max-age=31556952`) |
+| `Content-Security-Policy` | ✅ Cubierto vía `<meta>` |
+| `X-Content-Type-Options` | ✅ Cubierto vía `<meta>` |
+| `Referrer-Policy` | ✅ Cubierto vía `<meta>` |
+| `X-Frame-Options` / `frame-ancestors` | ❌ **Faltan** — no hay protección anti-clickjacking |
+| `Permissions-Policy` | ❌ Falta |
+| `Cross-Origin-Opener-Policy` | ❌ Falta |
+
+O sea: el hueco real es **clickjacking** (que alguien embeba el sitio en un iframe para
+engañar visitantes) más dos headers de defensa en profundidad. No es urgente para una
+landing sin login ni datos sensibles, pero es gratis de arreglar.
 El archivo [`_headers`](_headers) ya tiene la configuración completa esperando.
 
 Tenés dos caminos:
