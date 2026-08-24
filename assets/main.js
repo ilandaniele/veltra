@@ -70,53 +70,33 @@
     setTimeout(showHero,1200);
   })();
 
-  /* hero legajo loop: intake items -> typed fields -> stamp -> status */
+  /* hero panel loop: rows land one by one, each flips procesando… -> procesado ✓ */
   (function(){
-    var items=['li1','li2','li3'].map(function(id){return document.getElementById(id);});
-    var fields=['lf1','lf2','lf3','lf4'].map(function(id){return document.getElementById(id);});
-    var stamp=document.getElementById('stamp');
-    var status=document.getElementById('legstatus'),statusTxt=document.getElementById('legstatustxt');
-    if(!stamp||!status)return;
+    var panel=document.getElementById('legajo');
+    if(!panel)return;
+    var rows=['li1','li2','li3','li4','li5'].map(function(id){return document.getElementById(id);}).filter(Boolean);
+    if(!rows.length)return;
     var timers=[];
     function later(fn,ms){timers.push(setTimeout(fn,ms));}
-    function typeVal(el){
-      var v=el.querySelector('.v'),text=v.getAttribute('data-text'),i=0;
-      el.classList.add('show');
-      v.innerHTML='<span class="caret"></span>';
-      (function tick(){
-        if(i<text.length){
-          i++;v.innerHTML=text.slice(0,i).replace(/</g,'&lt;')+'<span class="caret"></span>';
-          timers.push(setTimeout(tick,34));
-        }else{v.textContent=text;}
-      })();
-    }
-    function setStatus(t,done){statusTxt.textContent=t;status.classList.toggle('done',!!done);}
-    function finalState(){
-      items.forEach(function(el){el.classList.add('show');});
-      fields.forEach(function(el){el.classList.add('show');var v=el.querySelector('.v');v.textContent=v.getAttribute('data-text');});
-      stamp.classList.add('show');setStatus('Cargado en core',true);
-    }
-    if(prefersReduce){finalState();return;}
+    function st(row){return row.querySelector('.pc-status');}
+    function settle(row){var s=st(row);s.textContent=s.getAttribute('data-done');s.classList.add('done');}
+    function reset(row){var s=st(row);s.textContent='procesando…';s.classList.remove('done');row.classList.remove('show');}
+    if(prefersReduce){rows.forEach(function(r){r.classList.add('show');settle(r);});return;}
     function run(){
       timers.forEach(clearTimeout);timers=[];
-      items.forEach(function(el){el.classList.remove('show');});
-      fields.forEach(function(el){el.classList.remove('show');el.querySelector('.v').textContent='';});
-      stamp.classList.remove('show');setStatus('Recibiendo',false);
-      var t=500;
-      items.forEach(function(el){later(function(){el.classList.add('show');},t);t+=480;});
-      later(function(){setStatus('Extrayendo',false);},t);
-      fields.forEach(function(el){
-        later(function(){typeVal(el);},t);
-        t+=el.querySelector('.v').getAttribute('data-text').length*34+320;
+      rows.forEach(reset);
+      var t=420;
+      rows.forEach(function(r){
+        later(function(){r.classList.add('show');},t);
+        later(function(){settle(r);},t+620);
+        t+=340;
       });
-      later(function(){setStatus('Validando',false);},t);t+=700;
-      later(function(){stamp.classList.add('show');setStatus('Cargado en core',true);},t);
-      later(run,t+5200);
+      later(run,t+6000); /* hold the finished state, then replay */
     }
     var legIO=new IntersectionObserver(function(es){es.forEach(function(e){
       if(e.isIntersecting){run();legIO.unobserve(e.target);}
     });},{threshold:0,rootMargin:'99999px 0px -10% 0px'});
-    legIO.observe(document.getElementById('legajo'));
+    legIO.observe(panel);
   })();
 
   /* stagger children of grids */
