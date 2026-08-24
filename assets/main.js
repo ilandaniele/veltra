@@ -143,13 +143,22 @@
     spy();
   })();
 
-  /* cursor spotlight — desktop pointer only */
+  /* hero grid spotlight — a stronger copy of the grid revealed under the pointer.
+     Only the mask position changes, so this stays on the compositor; the rAF gate
+     keeps it to one style write per frame no matter how fast the mouse moves. */
   if(!prefersReduce&&canHover){
-    var spot=document.createElement('div');spot.className='spotlight';document.body.appendChild(spot);
-    var sx=-1000,sy=-1000,tx=sx,ty=sy,raf=null;
-    function trail(){sx+=(tx-sx)*.12;sy+=(ty-sy)*.12;spot.style.left=sx+'px';spot.style.top=sy+'px';
-      if(Math.abs(tx-sx)>.5||Math.abs(ty-sy)>.5){raf=requestAnimationFrame(trail);}else{raf=null;}}
-    window.addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;if(!raf)raf=requestAnimationFrame(trail);});
+    var hero=document.querySelector('.hero');
+    if(hero){
+      var px=0,py=0,pending=false;
+      function paint(){pending=false;hero.style.setProperty('--mx',px+'px');hero.style.setProperty('--my',py+'px');}
+      hero.addEventListener('mousemove',function(e){
+        var r=hero.getBoundingClientRect();
+        px=e.clientX-r.left;py=e.clientY-r.top;
+        if(!pending){pending=true;requestAnimationFrame(paint);}
+      });
+      hero.addEventListener('mouseenter',function(){hero.classList.add('lit');});
+      hero.addEventListener('mouseleave',function(){hero.classList.remove('lit');});
+    }
   }
 
   /* simulation */
