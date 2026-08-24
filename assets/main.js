@@ -44,7 +44,7 @@
       e.preventDefault();
       if(FORM_ID.indexOf('YOUR_')===0){
         var fd=new FormData(f);
-        var body='Nombre: '+fd.get('nombre')+'\nEmpresa: '+fd.get('empresa')+'\nIndustria: '+fd.get('industria')+'\nEmail: '+fd.get('email')+'\n\nProceso a automatizar:\n'+fd.get('proceso');
+        var body='Nombre: '+fd.get('nombre')+'\nEmpresa: '+fd.get('empresa')+'\nCargo: '+fd.get('cargo')+'\nEmail: '+fd.get('email')+'\n\nCómo entran hoy los avisos:\n'+fd.get('proceso');
         var to=['veltra','soporte'].join('.')+'@'+['gmail','com'].join('.');
         location.href='mailto:'+to+'?subject='+encodeURIComponent('Quiero mi empleado digital — '+fd.get('empresa'))+'&body='+encodeURIComponent(body);
         return;

@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Veltra — Empleados digitales para aseguradoras</title>
-<meta name="description" content="Veltra crea empleados digitales especializados que se integran a tu sistema y se hacen cargo de procesos enteros. ClaimMix: el analista de siniestros con IA para aseguradoras.">
+<meta name="description" content="ClaimMix, el empleado digital de Veltra para compañías de seguros: recibe el aviso, ordena el relato, pide la documentación que falta y deja el expediente completo y listo para liquidar.">
 <meta property="og:title" content="Veltra — Empleados digitales para aseguradoras">
-<meta property="og:description" content="Automatizá cualquier proceso lento y engorroso de tu empresa en minutos. Conocé a ClaimMix, el primer empleado digital de Veltra.">
+<meta property="og:description" content="Tus siniestros, completos y listos para liquidar, sin perseguir un solo papel. Conocé a ClaimMix, el empleado digital de Veltra para aseguradoras.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ilandaniele.github.io/veltra/">
 <meta property="og:locale" content="es_AR">
@@ -466,7 +466,11 @@ body.menu-open .mnav .mnav-foot{opacity:1;transform:none}
 @media(min-width:960px){.contact-grid{grid-template-columns:1fr 1fr;gap:64px}}
 .contact-pitch h2{font-size:clamp(2rem,5vw,2.9rem);margin-top:16px}
 .contact-pitch p{color:var(--muted);margin-top:18px;font-size:1.02rem;max-width:50ch;line-height:1.7}
-.ind-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+/* ── FRANJA "MÁS ALLÁ DE LOS SEGUROS" ── */
+.beyond{border-top:1px solid var(--border);padding:40px 0;background:var(--bg);text-align:center}
+.beyond h3{font-size:1.35rem;margin-bottom:10px}
+.beyond p{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:62ch;margin:0 auto}
+.beyond a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .form-card{border:1px solid var(--border2);border-radius:20px;padding:28px 22px;background:var(--card)}
 @media(min-width:720px){.form-card{padding:34px 32px}}
 .form-card .fhead{font-family:var(--serif);font-size:1.4rem;color:var(--white);margin-bottom:24px}
@@ -614,16 +618,16 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
 <header class="hero" id="top">
   <div class="wrap">
     <div class="tagpill hero-anim" style="transition-delay:.02s"><span class="nu">Nuevo</span> ClaimMix, el analista de siniestros con IA</div>
-    <h1 class="hero-anim" style="transition-delay:.08s">Automatizá cualquier proceso de tu empresa <span class="chip">en minutos</span></h1>
-    <p class="sub hero-anim" style="transition-delay:.2s">Veltra crea <strong>empleados digitales especializados</strong> que se integran a tu sistema y se hacen cargo de procesos enteros — de punta a punta. Sin importar tu industria.</p>
+    <h1 class="hero-anim" style="transition-delay:.08s">Tus siniestros, completos y listos para liquidar, <span class="chip">sin perseguir un solo papel</span></h1>
+    <p class="sub hero-anim" style="transition-delay:.2s">Veltra crea <strong>empleados digitales especializados</strong> para compañías de seguros. ClaimMix recibe el aviso, ordena el relato, pide la documentación que falta y arma el expediente — de punta a punta.</p>
     <div class="cta-row hero-anim" style="transition-delay:.32s">
       <a href="#contacto" class="btn btn-acc lg">Agendá una demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="#claimmix" class="btn btn-out">Ver ClaimMix en acción</a>
     </div>
     <div class="hero-stats hero-anim" style="transition-delay:.44s">
       <div class="hstat"><div class="n">24/7</div><div class="l">Los avisos no esperan al horario de oficina. El agente tampoco.</div></div>
-      <div class="hstat"><div class="n">Punta a punta</div><div class="l">Del primer mensaje del asegurado al expediente cargado en tu core.</div></div>
-      <div class="hstat"><div class="n">30 días</div><div class="l">Piloto integrado y medido con tus propios datos, no con promesas.</div></div>
+      <div class="hstat"><div class="n">Punta a punta</div><div class="l">Del primer mensaje del asegurado al expediente completo y estructurado.</div></div>
+      <div class="hstat"><div class="n">Multicanal</div><div class="l">Mail, WhatsApp, audios, fotos y PDF en un solo flujo.</div></div>
     </div>
 
     <!-- el legajo que se arma solo -->
@@ -675,7 +679,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
       <span class="ti">Responde por WhatsApp</span>
       <span class="ti">Detecta faltantes</span>
       <span class="ti">Escala lo sensible</span>
-      <span class="ti">Carga en tu core</span>
+      <span class="ti">Deja el expediente listo</span>
     </div>
   </div>
 </div>
@@ -688,17 +692,11 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
       <h2>Abrir un siniestro hoy es <span class="chip">lento y manual</span></h2>
       <p>El costo no es solo tiempo: es capacidad senior atada a tareas administrativas que no liquidan nada.</p>
     </div>
-    <div class="statgrid">
-      <div class="sbox reveal"><div class="n"><span class="cu" data-count="70" data-suffix="%">70%</span></div><div class="l">del tiempo de apertura se va en juntar y cargar datos a mano.</div></div>
-      <div class="sbox reveal"><div class="n"><span class="cu" data-count="3" data-prefix="+" data-suffix=" días">+3 días</span></div><div class="l">de ida y vuelta promedio para completar la documentación faltante.</div></div>
-      <div class="sbox reveal"><div class="n">1 de 5</div><div class="l">expedientes vuelve por errores de carga o datos sueltos.</div></div>
-      <div class="sbox reveal"><div class="n">24/7</div><div class="l">los avisos entran a cualquier hora; el equipo no.</div></div>
-    </div>
     <div class="pain-list">
+      <div class="pain reveal"><span class="x">✕</span><span>La apertura del siniestro es el tramo que más horas administrativas consume y el que menos criterio profesional requiere.</span></div>
+      <div class="pain reveal"><span class="x">✕</span><span>Un expediente incompleto puede quedar días esperando una foto que nadie pidió.</span></div>
+      <div class="pain reveal"><span class="x">✕</span><span>Todo dato que se tipea a mano es un dato que alguien va a tener que corregir después.</span></div>
       <div class="pain reveal"><span class="x">✕</span><span>Avisos desordenados por mail y WhatsApp: relatos confusos, audios y fotos sueltas.</span></div>
-      <div class="pain reveal"><span class="x">✕</span><span>Días de ida y vuelta con el asegurado para juntar lo que falta.</span></div>
-      <div class="pain reveal"><span class="x">✕</span><span>Analistas senior cargando datos en vez de liquidar siniestros.</span></div>
-      <div class="pain reveal"><span class="x">✕</span><span>Errores de carga manual que después cuestan tiempo y retrabajo.</span></div>
     </div>
   </div>
 </section>
@@ -709,18 +707,18 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
     <div class="sec-head reveal">
       <span class="eyebrow cen">Qué hacemos</span>
       <h2>No es software. Son empleados que <span class="chip">trabajan solos</span></h2>
-      <p>Veltra construye agentes de IA especializados por industria. Cada uno conoce tu negocio, se integra a tu infraestructura y se hace cargo de un proceso entero — de punta a punta.</p>
+      <p>Veltra construye agentes de IA especializados. ClaimMix conoce el negocio asegurador, se integra a tu operación y se hace cargo del proceso de siniestros entero — de punta a punta.</p>
     </div>
     <div class="cmx-intro reveal">
       <span class="eyebrow cen">Nuestro primer agente</span>
       <h3>Conocé a <span class="chip">ClaimMix</span></h3>
-      <p>El primer empleado digital de Veltra: un analista de siniestros que recibe, valida, filtra y carga cada caso de punta a punta — hecho a medida de las aseguradoras.</p>
+      <p>El primer empleado digital de Veltra: un analista de siniestros que recibe, valida, filtra y arma cada caso de punta a punta — hecho a medida de las aseguradoras.</p>
     </div>
     <div class="grid-4">
       <div class="card reveal"><div class="orb-ic"></div><h3>Recibe</h3><p>Lee mails y WhatsApp, transcribe audios y entiende relatos desordenados.</p></div>
       <div class="card reveal"><div class="orb-ic v2"></div><h3>Valida</h3><p>Extrae fecha, lugar, partes y daños. Detecta lo que falta y lo pide solo.</p></div>
       <div class="card reveal"><div class="orb-ic v3"></div><h3>Filtra</h3><p>Si algo huele a fraude o pide criterio humano, lo escala a un analista.</p></div>
-      <div class="card reveal"><div class="orb-ic v4"></div><h3>Carga</h3><p>Deja el expediente completo cargado en tu core vía API, listo para liquidar.</p></div>
+      <div class="card reveal"><div class="orb-ic v4"></div><h3>Entrega</h3><p>Deja el expediente completo y estructurado, listo para cargar en tu sistema central.</p></div>
     </div>
   </div>
 </section>
@@ -737,7 +735,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
     <div class="split reveal">
       <div class="txt">
         <span class="eyebrow">Especializado por vertical</span>
-        <h3>Hecho para tu industria, no genérico</h3>
+        <h3>Hecho para el negocio asegurador, no genérico</h3>
         <p>ClaimMix conoce las reglas del negocio asegurador: tipos de siniestro, documentación obligatoria, coberturas y criterios de escalamiento. No es un chatbot suelto: es un analista entrenado para tu vertical.</p>
         <div class="chips">
           <span class="ftag">Reglas de negocio</span>
@@ -862,7 +860,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
     <div class="sec-head reveal">
       <span class="eyebrow cen">Nuestro primer agente</span>
       <h2>ClaimMix, <span class="chip">en vivo</span></h2>
-      <p>Mirá cómo convierte un aviso desordenado en un expediente cargado y listo para liquidar.</p>
+      <p>Mirá cómo convierte un aviso desordenado en un expediente completo y listo para liquidar.</p>
     </div>
     <div class="sim reveal" id="sim">
       <div class="sim-head">
@@ -903,7 +901,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
       <div class="step reveal"><span class="num">1</span><div><h3>Recibe e interpreta</h3><p>Lee el mail, transcribe audios y extrae fecha, lugar, partes y daños.</p></div></div>
       <div class="step reveal"><span class="num">2</span><div><h3>Pide lo que falta</h3><p>Detecta documentación faltante y se la pide al asegurado por el mismo canal.</p></div></div>
       <div class="step reveal"><span class="num">3</span><div><h3>Filtra fraude</h3><p>Si algo huele a fraude o requiere criterio humano, lo escala a un analista.</p></div></div>
-      <div class="step reveal"><span class="num">4</span><div><h3>Carga en tu sistema</h3><p>Deja el expediente completo cargado en el core, listo para liquidar.</p></div></div>
+      <div class="step reveal"><span class="num">4</span><div><h3>Entrega el expediente</h3><p>Deja el expediente completo, estructurado y clasificado, listo para cargar. La integración con tu sistema central se define junto a tu equipo de sistemas, según cómo esté armado.</p></div></div>
     </div>
   </div>
 </section>
@@ -925,7 +923,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
       <div class="ccol good reveal"><h3>Con ClaimMix <span class="t">Con Veltra</span></h3><ul>
         <li><span class="c2">✓</span> Apertura en minutos</li>
         <li><span class="c2">✓</span> Faltantes pedidos en automático</li>
-        <li><span class="c2">✓</span> Carga sola en el core vía API</li>
+        <li><span class="c2">✓</span> Expediente estructurado, listo para cargar</li>
         <li><span class="c2">✓</span> Datos precisos desde el origen</li>
       </ul></div>
     </div>
@@ -937,13 +935,14 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
   <div class="wrap">
     <div class="security reveal">
       <span class="eyebrow cen">Seguridad</span>
-      <h2>Tus datos nunca salen de <span class="chip">tu entorno</span></h2>
-      <p>Infraestructura self-hosted, procesamiento cifrado y escalamiento humano en los casos sensibles. La información es 100% de la aseguradora.</p>
+      <h2>Tus datos, tratados con el <span class="chip">estándar que exige tu compañía</span></h2>
+      <p>ClaimMix corre sobre infraestructura cloud dedicada. Los datos viajan cifrados, no se comparten con terceros más allá del procesamiento, y no se utilizan para entrenar ningún modelo.</p>
+      <p>Si el área de seguridad de tu compañía lo prefiere, el procesamiento puede configurarse para correr bajo la cuenta propia de la empresa, con clave propia: en ese esquema el dato nunca sale de tu relación contractual directa con el proveedor de IA.</p>
       <div class="badges">
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg> Self-hosted</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Cifrado extremo a extremo</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg> Trazabilidad completa</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="14" r="4"/><path d="M11 11l9-7M16 8l3-3"/></svg> Propiedad 100% tuya</span>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Cifrado en tránsito y en reposo</span>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg> Sin uso de datos para entrenamiento de modelos</span>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg> Trazabilidad completa de cada expediente</span>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="14" r="4"/><path d="M11 11l9-7M16 8l3-3"/></svg> Opción de procesamiento bajo cuenta propia</span>
       </div>
     </div>
   </div>
@@ -955,23 +954,23 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
     <div class="sec-head reveal">
       <span class="eyebrow cen">Cómo cobramos</span>
       <h2>Pricing por <span class="chip">valor</span></h2>
-      <p>Pagás por lo que ClaimMix le ahorra a tu operación. El número fino sale del piloto, con tus propios datos.</p>
+      <p>Pagás por lo que ClaimMix le ahorra a tu operación. El esquema se define junto a tu equipo, según el volumen de siniestros de tu compañía.</p>
     </div>
     <div class="grid-3">
       <div class="card price-card reveal">
-        <div class="pk">Volumen</div><div class="tag">Plan por volumen</div>
-        <p>Plan mensual según la cantidad de siniestros que maneja tu compañía.</p>
-        <a href="#contacto" class="btn-ghost">Pedí tu propuesta</a>
+        <div class="pk">Para empezar</div><div class="tag">Base</div>
+        <p>Para compañías con hasta 1.500 siniestros mensuales.</p>
+        <a href="#contacto" class="btn-ghost">Consultar precio</a>
       </div>
       <div class="card price-card feat reveal">
-        <div class="pk">Para empezar</div><div class="tag">Piloto de 30 días</div>
-        <p>Piloto pago, integrado y funcionando, con métricas de éxito definidas de antemano.</p>
-        <a href="#contacto" class="btn-ghost">Pedí tu propuesta</a>
+        <div class="pk">Volumen</div><div class="tag">Escala</div>
+        <p>Volumen medio y alto, con cupo mensual definido.</p>
+        <a href="#contacto" class="btn-ghost">Consultar precio</a>
       </div>
       <div class="card price-card reveal">
-        <div class="pk">Enterprise</div><div class="tag">Personalizado</div>
-        <p>Para grandes volúmenes, un esquema a medida de tu operación.</p>
-        <a href="#contacto" class="btn-ghost">Pedí tu propuesta</a>
+        <div class="pk">A medida</div><div class="tag">Enterprise</div>
+        <p>Grandes volúmenes, condiciones a medida.</p>
+        <a href="#contacto" class="btn-ghost">Consultar precio</a>
       </div>
     </div>
   </div>
@@ -983,7 +982,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
     <div class="founder reveal">
       <span class="eyebrow cen">Acceso fundador</span>
       <h2>Estamos seleccionando <span class="chip">aseguradoras fundadoras</span></h2>
-      <p>Cupos limitados. Implementamos ClaimMix integrado en un piloto de 30 días, con condiciones de early adopter para las primeras compañías.</p>
+      <p>Estamos incorporando un número limitado de aseguradoras fundadoras. Las primeras compañías acceden a condiciones preferenciales de implementación y a participar en la definición de las próximas capacidades del producto.</p>
       <a href="#contacto" class="btn btn-acc lg" style="display:inline-flex">Quiero ser aseguradora fundadora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
@@ -994,32 +993,23 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-pitch reveal">
-        <span class="eyebrow">Más allá de los seguros</span>
-        <h2>¿Tu industria tiene un proceso que se <span class="chip">repite mil veces</span>?</h2>
-        <p>ClaimMix es nuestro primer empleado digital, pero la tecnología no es solo para aseguradoras. Si en tu empresa hay una tarea repetitiva que come horas — leer mails, cargar datos, mover archivos entre sistemas — diseñamos un empleado digital a medida.</p>
-        <p style="margin-top:14px">Contanos qué proceso te gustaría automatizar y armamos una propuesta concreta para tu caso.</p>
-        <div class="ind-list">
-          <span class="ftag">Logística</span>
-          <span class="ftag">Salud</span>
-          <span class="ftag">Fintech</span>
-          <span class="ftag">Legal</span>
-          <span class="ftag">Retail</span>
-          <span class="ftag">Inmobiliaria</span>
-          <span class="ftag">Tu industria</span>
-        </div>
+        <span class="eyebrow">Contacto</span>
+        <h2>Hablemos de tu operación de <span class="chip">siniestros</span></h2>
+        <p>Contanos cómo entran hoy los avisos en tu compañía y qué pasa desde el primer mensaje del asegurado hasta que el expediente queda armado.</p>
+        <p style="margin-top:14px">Te mostramos ClaimMix trabajando sobre casos como los de tu operación, no sobre un ejemplo genérico.</p>
       </div>
       <div class="form-card reveal">
         <form id="contact-form">
-          <div class="fhead">Conversemos sobre tu proceso</div>
+          <div class="fhead">Conversemos sobre tu operación</div>
           <div class="frow">
             <div class="field-in"><label for="cf-name">Nombre</label><input id="cf-name" name="nombre" type="text" placeholder="Tu nombre" required></div>
             <div class="field-in"><label for="cf-company">Empresa</label><input id="cf-company" name="empresa" type="text" placeholder="Tu empresa" required></div>
           </div>
           <div class="frow">
-            <div class="field-in"><label for="cf-industry">Industria</label><input id="cf-industry" name="industria" type="text" placeholder="Ej. logística" required></div>
+            <div class="field-in"><label for="cf-role">Cargo</label><input id="cf-role" name="cargo" type="text" placeholder="Ej. Gerente de Siniestros" required></div>
             <div class="field-in"><label for="cf-email">Email de trabajo</label><input id="cf-email" name="email" type="email" placeholder="vos@empresa.com" required></div>
           </div>
-          <div class="field-in"><label for="cf-process">¿Qué proceso querés automatizar?</label><textarea id="cf-process" name="proceso" placeholder="Contanos en una línea qué tarea repetitiva te gustaría sacarte de encima…" required></textarea></div>
+          <div class="field-in"><label for="cf-process">¿Cómo entran hoy los avisos de siniestro?</label><textarea id="cf-process" name="proceso" placeholder="Contanos en una línea por dónde llegan los avisos y qué parte les consume más tiempo…" required></textarea></div>
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <button type="submit" class="btn btn-acc" id="cf-submit">
             <span>Quiero mi empleado digital</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1029,10 +1019,18 @@ footer{border-top:1px solid var(--border);padding:64px 0 38px;background:var(--b
         <div class="form-done" id="contact-done">
           <div class="ok">✓</div>
           <h3>¡Gracias! Lo recibimos.</h3>
-          <p>Un humano — no un agente — te escribe en las próximas 48&nbsp;hs para entender tu proceso.</p>
+          <p>Un humano — no un agente — te escribe en las próximas 48&nbsp;hs para entender tu operación.</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MÁS ALLÁ DE LOS SEGUROS — franja discreta -->
+<section class="beyond">
+  <div class="wrap">
+    <h3>ClaimMix es el primero, no el único</h3>
+    <p>La misma tecnología aplica a cualquier proceso que se repita miles de veces al mes. Empezamos por siniestros porque es donde el impacto es más claro. Si tenés un proceso así en tu operación, <a href="#contacto">escribinos</a>.</p>
   </div>
 </section>
 
