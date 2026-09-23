@@ -772,7 +772,7 @@ footer{border-top:1px solid var(--border);background:var(--surface);padding:56px
   </div>
 </section>
 
-<!-- CLAIMMIX SIMULACIÓN -->
+<!-- CLAIMMIX DEMO VIDEO -->
 <section class="sec alt" id="claimmix">
   <div class="wrap">
     <div class="sec-head cen reveal">
@@ -780,30 +780,10 @@ footer{border-top:1px solid var(--border);background:var(--surface);padding:56px
       <h2>ClaimMix, <span class="chip">en vivo</span></h2>
       <p>Mirá cómo convierte un aviso desordenado en un expediente completo y listo para decidir.</p>
     </div>
-    <div class="sim reveal" id="sim">
-      <div class="sim-head">
-        <span class="dot"></span> ClaimMix · procesando siniestro
-        <span class="tag">Simulación</span>
-        <button class="replay" id="replay">↻ Reproducir</button>
-      </div>
-      <div class="sim-body">
-        <div class="sim-col left">
-          <div class="sim-cap">Entra por WhatsApp</div>
-          <div class="msg" id="b1"><div class="who">Asegurado</div>Choqué hoy a la mañana en Av. Cabildo, me chocó un auto de atrás. Mando fotos.</div>
-          <div class="msg pill" id="b2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg> Audio de voz · 0:14</div>
-          <div class="msg pill" id="b3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 16l-5-5L5 19"/></svg> foto_choque.jpg</div>
-        </div>
-        <div class="sim-col right">
-          <div class="sim-cap">ClaimMix extrae y valida</div>
-          <div class="field" id="f1"><span class="k">Fecha</span><span class="v ok">09/06/2026</span></div>
-          <div class="field" id="f2"><span class="k">Lugar</span><span class="v ok">Av. Cabildo, CABA</span></div>
-          <div class="field" id="f3"><span class="k">Tipo</span><span class="v ok">Colisión trasera</span></div>
-          <div class="field" id="f4"><span class="k">Patente</span><span class="v ok">AE 412 KR</span></div>
-          <div class="note warn" id="n1">⚠ Falta la foto de la oblea de VTV</div>
-          <div class="note sent" id="n2">→ Pedido enviado al asegurado por WhatsApp, sin intervención humana</div>
-          <div class="note done" id="n3">✓ Expediente completo, listo para el analista</div>
-        </div>
-      </div>
+    <div class="panel reveal" style="max-width:1000px;margin:0 auto;overflow:hidden">
+      <video controls preload="metadata" playsinline style="display:block;width:100%;height:auto;background:#000">
+        <source src="assets/claimmix-demo-v7.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
