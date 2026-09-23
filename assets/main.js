@@ -1,5 +1,4 @@
 ﻿// Veltra landing - interactions
-// Set FORM_ID below to your Formspree ID; until then the form falls back to mailto.
 
 (function(){
   var prefersReduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -32,31 +31,6 @@
 
   /* ticker duplicate for seamless loop */
   (function(){var t=document.getElementById('track');if(t){t.innerHTML+=t.innerHTML;}})();
-
-  /* contact form — Formspree AJAX + honeypot (mailto fallback until FORM_ID is set) */
-  (function(){
-    var FORM_ID='YOUR_FORMSPREE_ID';
-    var f=document.getElementById('contact-form'),done=document.getElementById('contact-done'),btn=document.getElementById('cf-submit');
-    if(!f)return;
-    var lbl=btn.querySelector('span'),lbl0=lbl?lbl.textContent:'';
-    function restore(){btn.disabled=false;btn.style.opacity='';if(lbl)lbl.textContent=lbl0;}
-    f.addEventListener('submit',function(e){
-      e.preventDefault();
-      if(FORM_ID.indexOf('YOUR_')===0){
-        var fd=new FormData(f);
-        var body='Nombre: '+fd.get('nombre')+'\nEmpresa: '+fd.get('empresa')+'\nCargo: '+fd.get('cargo')+'\nEmail: '+fd.get('email')+'\n\nCómo entran hoy los avisos:\n'+fd.get('proceso');
-        var to=['veltra','soporte'].join('.')+'@'+['gmail','com'].join('.');
-        location.href='mailto:'+to+'?subject='+encodeURIComponent('Quiero mi empleado digital — '+fd.get('empresa'))+'&body='+encodeURIComponent(body);
-        return;
-      }
-      btn.disabled=true;btn.style.opacity='0.6';if(lbl)lbl.textContent='Enviando…';
-      fetch('https://formspree.io/f/'+FORM_ID,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(r){
-        if(r.ok){f.style.display='none';done.style.display='block';}
-        else{return r.json().then(function(d){var msg=d.errors?d.errors.map(function(x){return x.message;}).join(', '):'Error al enviar. Intentá de nuevo.';alert(msg);restore();});}
-      }).catch(function(){alert('Error de red. Verificá tu conexión e intentá de nuevo.');restore();});
-    });
-  })();
 
   /* hero entrance. The double-rAF runs the transition on the first real paint, which is
      what we want in a focused tab. rAF is paused while a tab is backgrounded, so the
