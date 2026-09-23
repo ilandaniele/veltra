@@ -4,8 +4,8 @@ Landing page de **Veltra** — empleados digitales especializados por industria.
 
 🌐 **Sitio en vivo:** https://ilandaniele.github.io/veltra/
 
-> ⚠️ **El formulario de contacto todavía no envía nada.** Falta poner el ID de Formspree.
-> Ver [`SETUP.md`](SETUP.md) — es un paso de 5 minutos y es lo único bloqueante.
+El contacto se agenda directo por Calendly (widget embebido en `#contacto`), no hay
+formulario propio que mantener.
 
 ## Estructura
 
@@ -15,8 +15,8 @@ Landing page de **Veltra** — empleados digitales especializados por industria.
 | [`assets/main.js`](assets/main.js) | Toda la interactividad. **Externalizado a propósito** (ver abajo). |
 | [`_headers`](_headers) | Security headers HTTP. Solo se aplican en Cloudflare Pages / Netlify. |
 | [`robots.txt`](robots.txt) · [`sitemap.xml`](sitemap.xml) | SEO. |
-| [`SETUP.md`](SETUP.md) | Los 3 pasos que requieren tu cuenta (Formspree, Cloudflare, dominio). |
-| [`design/`](design/) | Export original de Claude Design. Referencia, **no se publica**. |
+| [`SETUP.md`](SETUP.md) | Los pasos que requieren tu cuenta (Cloudflare, dominio). |
+| [`design/`](design/) | Export original de Claude Design. Referencia — contiene copy vieja/incorrecta, no debería estar publicado (ver nota en `SETUP.md`). |
 
 ### Por qué el JS está en un archivo aparte
 

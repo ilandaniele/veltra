@@ -1,43 +1,28 @@
 # Setup — pasos que requieren tu cuenta
 
-Todo lo que se puede automatizar ya está hecho. Estos tres pasos necesitan credenciales,
-pago o acceso a tu registrador, así que los tenés que hacer vos.
+Todo lo que se puede automatizar ya está hecho. Estos pasos necesitan credenciales,
+pago o acceso a tu registrador, así que los tenés que hacer vos. Ninguno es bloqueante:
+el contacto ya se agenda por Calendly (widget embebido en `#contacto`), no depende de
+un formulario propio.
 
-Están ordenados por impacto. El 1 es el único **bloqueante**.
+## 0. `design/` — sacarlo de lo publicado (pendiente, recomendado antes de lanzar)
 
----
+`design/Veltra.html` y `design/tweaks-panel.jsx` están commiteados y por eso GitHub Pages
+los sirve igual que cualquier otro archivo del repo — `robots.txt` los desindexa de
+buscadores, pero **no** bloquea el acceso directo por URL
+(`https://ilandaniele.github.io/veltra/design/Veltra.html` responde 200). Ese HTML es un
+export viejo con copy ya corregida en el sitio real: dice "cargado en el core" y "Filtra
+fraude" y describe infraestructura "self-hosted" — afirmaciones que `CLAUDE.md` marca
+explícitamente como incorrectas (ver su sección 8). Si alguien de una aseguradora lo
+encuentra, contradice lo que ya se le prometió por escrito.
 
-## 1. Formspree — activar el formulario (BLOQUEANTE, ~5 min, gratis)
-
-Hoy el formulario **no envía nada a un servidor**: mientras `FORM_ID` sea el placeholder,
-cae a un `mailto:` que abre el cliente de correo del visitante. Eso pierde leads (mucha
-gente no tiene cliente de mail configurado).
-
-1. Creá una cuenta en https://formspree.io (plan free: 50 envíos/mes).
-2. **New Form** → nombre "Veltra contacto" → email de destino.
-3. Copiá el ID del form. Es el string final de la URL que te dan:
-   `https://formspree.io/f/`**`xpzvgkda`** ← eso.
-4. Abrí [`assets/main.js`](assets/main.js), línea ~38, y reemplazá:
-
-   ```js
-   var FORM_ID='YOUR_FORMSPREE_ID';   // ← antes
-   var FORM_ID='xpzvgkda';            // ← después (tu ID real)
-   ```
-
-5. En Formspree → **Settings → Restrict to Domain**, agregá tu dominio
-   (`ilandaniele.github.io`, y el dominio propio cuando lo tengas). Sin esto, cualquiera
-   puede spamear tu form desde otro sitio.
-6. `git add assets/main.js && git commit -m "Set Formspree form ID" && git push`
-
-**Verificación:** entrá al sitio, mandá el form. Tenés que ver el mensaje de gracias
-(no que se abra el mail) y que llegue el correo.
-
-> El honeypot `_gotcha` ya está puesto: Formspree descarta automáticamente los envíos
-> donde ese campo viene lleno, que es lo que hacen los bots.
+Antes de lanzar formalmente: sacar `design/` del tracking de git (`git rm -r --cached
+design/` + commit) o al menos purgar las frases desactualizadas de `Veltra.html`. No lo
+hice solo porque no sé si querés conservar esos archivos como referencia en otro lado.
 
 ---
 
-## 2. Cloudflare — activar los security headers reales (~15 min, gratis)
+## 1. Cloudflare — activar los security headers reales (~15 min, gratis)
 
 **El problema:** GitHub Pages no permite mandar headers HTTP propios.
 
@@ -69,7 +54,7 @@ Tenés dos caminos:
 
 ### Opción B — Cloudflare como proxy delante de GitHub Pages
 
-Sirve solo si ya tenés dominio propio (paso 3). Los headers se agregan con una
+Sirve solo si ya tenés dominio propio (paso 2). Los headers se agregan con una
 **Transform Rule → Modify Response Header**, copiando los valores de [`_headers`](_headers).
 
 **Verificación (cualquiera de las dos):**
@@ -82,7 +67,7 @@ O pegá la URL en https://securityheaders.com — deberías pasar de **D** a **A
 
 ---
 
-## 3. Dominio propio (~10 min + costo del dominio)
+## 2. Dominio propio (~10 min + costo del dominio)
 
 1. Comprá el dominio. Cloudflare Registrar lo vende **a precio de costo** (sin markup ni
    renovación inflada) y es lo más barato para `.com`. Para `.io`, Porkbun suele ganar.
@@ -111,7 +96,6 @@ O pegá la URL en https://securityheaders.com — deberías pasar de **D** a **A
    - [`index.html`](index.html) → `og:url` y `<link rel="canonical">`
    - [`sitemap.xml`](sitemap.xml) → `<loc>`
    - [`robots.txt`](robots.txt) → línea `Sitemap:`
-   - Formspree → domain allowlist (paso 1.5)
 
 ---
 
@@ -121,4 +105,5 @@ El sitio es **estático**: no hay backend, base de datos, login ni servidor. Por
 aplican Row Level Security, CORS, rate limiting en origen, sanitización SQL, validación
 de tokens, variables de entorno ni hardening de VPS/SSH. No hay superficie donde apliquen.
 
-El rate limiting del formulario lo maneja Formspree (50/mes en free).
+El agendamiento lo maneja Calendly (rate limiting, spam y validación de disponibilidad
+son responsabilidad suya, no nuestra).
