@@ -269,6 +269,11 @@ body.menu-open .mnav .mnav-foot{opacity:1;transform:none}
 .panel{position:relative;background-color:var(--surface);background-image:var(--glass);border:1px solid var(--border2);
   box-shadow:var(--glass-lip),0 1px 2px rgba(19,24,34,.04),0 16px 44px -22px rgba(19,24,34,.2)}
 
+.phone-frame{position:relative;display:inline-block;background:var(--ink);padding:14px 14px 20px;border-radius:40px;
+  box-shadow:0 28px 64px -24px rgba(19,24,34,.4),0 2px 10px rgba(19,24,34,.18)}
+.phone-frame video{display:block;border-radius:24px;background:#000}
+.phone-notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:84px;height:20px;background:var(--ink);border-radius:0 0 16px 16px;z-index:2}
+
 /* Panel 1: diagram */
 .diag{padding:28px 14px;min-height:300px;display:flex;align-items:center;justify-content:center;position:relative}
 @media(min-width:720px){.diag{padding:36px;min-height:340px}}
@@ -780,10 +785,13 @@ footer{border-top:1px solid var(--border);background:var(--surface);padding:56px
       <h2>ClaimMix, <span class="chip">en vivo</span></h2>
       <p>Mirá cómo convierte un aviso desordenado en un expediente completo y listo para decidir.</p>
     </div>
-    <div class="panel reveal" style="width:fit-content;max-width:100%;margin:0 auto;overflow:hidden">
-      <video controls preload="metadata" playsinline poster="assets/claimmix-poster.jpg" style="display:block;width:auto;height:auto;max-width:100%;max-height:70vh;background:#000">
-        <source src="assets/claimmix-demo-v7.mp4" type="video/mp4">
-      </video>
+    <div class="reveal" style="text-align:center">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <video controls preload="metadata" playsinline poster="assets/claimmix-poster.jpg" style="width:auto;height:auto;max-width:100%;max-height:min(62vh,560px)">
+          <source src="assets/claimmix-demo-v7.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
   </div>
 </section>
