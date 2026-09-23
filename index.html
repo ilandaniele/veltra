@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#F4F5F7">
 <link rel="canonical" href="https://ilandaniele.github.io/veltra/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='10' height='10' fill='%233F57E7'/%3E%3Crect x='14' width='10' height='10' fill='%233F57E7' opacity='.5'/%3E%3Crect y='14' width='10' height='10' fill='%233F57E7' opacity='.5'/%3E%3Crect x='14' y='14' width='10' height='10' fill='%233F57E7'/%3E%3C/svg%3E">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src https://formspree.io; img-src 'self' data:; base-uri 'self'; form-action https://formspree.io; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src https://fonts.gstatic.com; script-src 'self' https://assets.calendly.com; frame-src https://calendly.com; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -928,29 +928,8 @@ footer{border-top:1px solid var(--border);background:var(--surface);padding:56px
         <p>Contanos cómo entran hoy los avisos en tu compañía y qué pasa desde el primer mensaje del asegurado hasta que el expediente queda armado.</p>
         <p style="margin-top:14px">Te mostramos ClaimMix trabajando sobre casos como los de tu operación, no sobre un ejemplo genérico.</p>
       </div>
-      <div class="form-card reveal">
-        <form id="contact-form">
-          <div class="fhead">Conversemos sobre tu operación</div>
-          <div class="frow">
-            <div class="field-in"><label for="cf-name">Nombre</label><input id="cf-name" name="nombre" type="text" placeholder="Tu nombre" required></div>
-            <div class="field-in"><label for="cf-company">Empresa</label><input id="cf-company" name="empresa" type="text" placeholder="Tu empresa" required></div>
-          </div>
-          <div class="frow">
-            <div class="field-in"><label for="cf-role">Cargo</label><input id="cf-role" name="cargo" type="text" placeholder="Ej. Gerente de Siniestros" required></div>
-            <div class="field-in"><label for="cf-email">Email de trabajo</label><input id="cf-email" name="email" type="email" placeholder="vos@empresa.com" required></div>
-          </div>
-          <div class="field-in"><label for="cf-process">¿Cómo entran hoy los avisos de siniestro?</label><textarea id="cf-process" name="proceso" placeholder="Contanos en una línea por dónde llegan los avisos y qué parte les consume más tiempo…" required></textarea></div>
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-          <button type="submit" class="btn btn-acc" id="cf-submit">
-            <span>Quiero mi empleado digital</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <div class="form-note">Te respondemos en menos de 48&nbsp;hs hábiles. Sin spam.</div>
-        </form>
-        <div class="form-done" id="contact-done">
-          <div class="ok">✓</div>
-          <h3>¡Gracias! Lo recibimos.</h3>
-          <p>Un humano — no un agente — te escribe en las próximas 48&nbsp;hs para entender tu operación.</p>
-        </div>
+      <div class="form-card reveal" style="padding:0;overflow:hidden">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/veltra-info1/demo-de-claimmix?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
       </div>
     </div>
   </div>
@@ -986,6 +965,7 @@ footer{border-top:1px solid var(--border);background:var(--surface);padding:56px
   </div>
 </footer>
 
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="assets/main.js"></script>
 </body>
 </html>
