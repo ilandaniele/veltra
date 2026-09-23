@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguridad de datos — Veltra</title>
+<meta name="description" content="Controles de seguridad y gobernanza de IA de ClaimMix: qué preguntas responde antes de aprobar un proveedor.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://ilandaniele.github.io/veltra/legal/seguridad-de-datos.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='10' height='10' fill='%233F57E7'/%3E%3Crect x='14' width='10' height='10' fill='%233F57E7' opacity='.5'/%3E%3Crect y='14' width='10' height='10' fill='%233F57E7' opacity='.5'/%3E%3Crect x='14' y='14' width='10' height='10' fill='%233F57E7'/%3E%3C/svg%3E">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F5F7; --surface:#FFFFFF; --ink:#131822; --muted:#545E70; --muted2:#7A8394;
+  --border:#E7EBF2; --border2:#D6DCE7; --accent:#3F57E7; --accent-soft:#EEF1FE;
+  --serif:'Bitter',Georgia,'Times New Roman',serif;
+  --sans:'Inter Tight',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--border);background:rgba(244,245,247,.9);padding:20px 0}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:20px;color:var(--ink)}
+.logo .mark{width:20px;height:20px;position:relative;flex:0 0 auto}
+.logo .mark span{position:absolute;width:8px;height:8px;background:var(--accent)}
+.logo .mark .s1{left:0;top:0}.logo .mark .s2{right:0;top:0;opacity:.5}
+.logo .mark .s3{left:0;bottom:0;opacity:.5}.logo .mark .s4{right:0;bottom:0}
+main{padding:56px 0 72px}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);padding-bottom:8px;border-bottom:2px solid var(--accent)}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5vw,42px);margin-top:20px;letter-spacing:-.02em}
+.updated{margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--muted2)}
+.lead{margin-top:22px;font-size:16px;color:var(--muted);max-width:64ch}
+section{margin-top:44px}
+h2{font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+p{margin-top:10px;color:var(--muted);font-size:16px}
+ul{margin-top:10px;padding-left:20px;color:var(--muted)}
+li{margin-bottom:8px;font-size:16px}
+strong{color:var(--ink);font-weight:600}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border:1px solid var(--border2)}
+th{background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2)}
+td{background:var(--surface);color:var(--muted)}
+.note{margin-top:44px;background:var(--accent-soft);border:1px solid var(--border2);padding:18px 20px;font-size:15px;color:var(--ink)}
+footer{border-top:1px solid var(--border);padding:32px 0;font-family:var(--mono);font-size:12px;color:var(--muted2)}
+footer a{color:var(--muted2)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="../index.html" class="logo"><span class="mark"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span></span>Veltra</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <span class="eyebrow">Seguridad</span>
+  <h1>Seguridad de datos y gobernanza de IA</h1>
+  <p class="updated">Última actualización: 22 de septiembre de 2026</p>
+  <p class="lead">Esto responde las preguntas que habitualmente hace el área de seguridad, riesgos o IT de una aseguradora antes de aprobar un proveedor. Describe controles, no implementación interna: los detalles de arquitectura y código de ClaimMix son propiedad de Veltra y no se comparten fuera del equipo de producto.</p>
+
+  <section>
+    <h2>1. Gestión de accesos</h2>
+    <ul>
+      <li>Cada usuario (analista, admin, especialista) tiene una cuenta individual con contraseña propia; no hay usuarios compartidos.</li>
+      <li>El acceso a rutas administrativas requiere rol de administrador verificado en cada pedido al servidor, no solo en la pantalla: se auditó específicamente que ninguna ruta de administración quede abierta a un usuario de menor privilegio.</li>
+      <li>El inicio de sesión limita los intentos fallidos por IP y por correo, como defensa contra el rociado de contraseñas.</li>
+      <li>Alta de usuarios controlada: nadie se autoregistra en un entorno sin una lista explícita de correos o dominios permitidos.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Cifrado y protección de datos</h2>
+    <ul>
+      <li>Datos en tránsito cifrados (HTTPS/TLS) en todos los canales: aplicación web, webhooks de WhatsApp y Gmail, y llamadas al modelo de IA.</li>
+      <li>Adjuntos (fotos, documentos) en almacenamiento cifrado, con acceso controlado por credenciales que nunca se exponen al navegador.</li>
+      <li>Los tokens y llaves que descifran credenciales de casillas de correo están marcados de <strong>solo escritura</strong> en la plataforma de despliegue: ni siquiera quien los cargó puede volver a leerlos.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Aislamiento entre aseguradoras (multi-tenant)</h2>
+    <p>Cada aseguradora es un tenant aislado a nivel de base de datos. Ninguna consulta del producto puede saltear el filtro por aseguradora: está reforzado con Row-Level Security de Postgres, no solo con lógica de aplicación. Es el control más crítico del sistema —una falla acá expondría datos de una cartera a otra— y por eso es el que más se prueba: en cada ciclo de control se crean datos de una aseguradora y se confirma, por cada vía de acceso (pantalla, listado, búsqueda, exportación, y las herramientas del propio agente de IA), que ninguna otra aseguradora puede verlos.</p>
+  </section>
+
+  <section>
+    <h2>4. Subencargados de tratamiento (infraestructura)</h2>
+    <table>
+      <tr><th>Proveedor</th><th>Función</th></tr>
+      <tr><td>Vercel</td><td>Hosting de la aplicación web</td></tr>
+      <tr><td>Neon (Postgres)</td><td>Base de datos</td></tr>
+      <tr><td>Google Cloud / Vertex AI</td><td>Modelo de IA (Gemini), bajo cuenta de servicio propia de Veltra</td></tr>
+      <tr><td>Cloudflare</td><td>Almacenamiento cifrado de adjuntos</td></tr>
+      <tr><td>Meta (WhatsApp Business Cloud API)</td><td>Canal oficial de mensajería</td></tr>
+      <tr><td>Google (Gmail API)</td><td>Canal de correo</td></tr>
+    </table>
+    <p>Todos son proveedores cloud de primer nivel con sus propias certificaciones de seguridad. Ninguno recibe datos de la aseguradora para fines distintos de prestar el servicio contratado.</p>
+  </section>
+
+  <section>
+    <h2>5. Gestión de incidentes</h2>
+    <ul>
+      <li>Errores de la aplicación se capturan con seguimiento de errores en tiempo real (Sentry); el contenido crudo de mensajes de asegurados nunca se registra en logs de texto plano.</li>
+      <li>Un endpoint de salud monitorea continuamente base de datos, almacenamiento, modelo de IA y canales de mensajería, y reporta caídas antes de que las note un usuario.</li>
+      <li>Cambios de comportamiento del agente pasan por un ciclo de pruebas automatizado antes de llegar a producción.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Gobernanza del modelo de IA</h2>
+    <ul>
+      <li><strong>No se entrena ningún modelo con datos de clientes ni de asegurados</strong>, ni por Veltra ni por sus subencargados — cláusula contractual del Anexo de Tratamiento de Datos.</li>
+      <li><strong>Límite de decisión explícito:</strong> el modelo no determina cobertura, no acepta ni rechaza siniestros, no cuantifica daños ni liquida (art. 56, Ley 17.418). Prepara el expediente; la aseguradora decide.</li>
+      <li><strong>Revisión humana obligatoria</strong> en casos de severidad alta o crítica y ante cualquier indicio de datos de salud — el sistema no ingiere datos de salud en su flujo automatizado, por diseño.</li>
+      <li><strong>Umbral de confianza:</strong> casos por debajo de un umbral configurado se enrutan a revisión humana en lugar de auto-procesarse.</li>
+      <li><strong>Trazabilidad:</strong> cada resultado queda registrado con su fuente documental, nivel de confianza, versión del modelo y de las reglas aplicadas, e identidad del revisor humano.</li>
+      <li><strong>Validación activa, no solo documentada:</strong> el comportamiento del agente se pone a prueba con casos de ensayo completos (conversaciones enteras) antes de cada despliegue a producción, y se somete a pruebas de resistencia a instrucciones maliciosas.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>7. Sobre certificaciones formales</h2>
+    <p>Hoy Veltra no cuenta con certificaciones formales tipo SOC&nbsp;2 o ISO&nbsp;27001 propias. Los controles descritos en esta página son los que efectivamente operan en producción. Preferimos declarar esto con precisión antes que dar a entender una certificación que no existe.</p>
+  </section>
+
+  <div class="note">
+    El detalle contractual completo (Anexo de Tratamiento de Datos, Ficha de Transparencia de IA, SLA) se comparte durante el proceso de evaluación con el equipo de compliance de tu compañía. Para pedirlo o para cualquier consulta sobre estos controles, escribinos a <a href="mailto:ilan.daniele@gmail.com">ilan.daniele@gmail.com</a>.
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 Veltra — Buenos Aires, Argentina · <a href="../index.html">Volver al sitio</a>
+  </div>
+</footer>
+
+</body>
+</html>
